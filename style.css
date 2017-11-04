@@ -436,16 +436,16 @@ article {
 	margin: 3% auto;
 }
 
-.gh-icon {
+.se-icon {
 	margin-top: 20vh !important;
 	margin-bottom: 20vh !important;
 	text-align: center;
 }
 
-.gh-icon a {
+.se-icon a {
 	color: #AAA;
 }
 
-.gh-icon a:hover {
+.se-icon a:hover {
 	color: #FFF;
 }
