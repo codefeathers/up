@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<head>
+
+	<html lang="en">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>codefeathers/up-serve: A cli tool to quickly create and manage nginx server blocks.</title>
+	<meta content="up-serve - A cli tool to quickly create and manage nginx server blocks." property="og:description">
+	<link rel="canonical" href="https://github.com/codefeathers/up-serve" data-pjax-transient="">
+	<meta name="theme-color" content="#1e2327">
+
+</head>
+
+<body class="logged-in env-production">
+
+	<article class="markdown-body entry-content" itemprop="text">
+		<p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</p>
+		<p alt="up—quick server blocks in one command" align="center">
+			<img src="./icon.png" style="max-width:100%;" height="60">
+		</p>
+		<p align="center">quick
+			<em>nginx</em> server blocks in one command</p>
+		<p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</p>
+		<h1>
+			<a href="#up" aria-hidden="true" class="anchor" id="up">
+				<svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+					<path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+				</svg>
+			</a>up</h1>
+		<blockquote>
+			<p>Current version:
+				<code>up v.0.1.5 (Pre-Alpha)</code>
+			</p>
+		</blockquote>
+		<blockquote>
+			<p>Notes:
+				<code>up</code> has landed in pre-alpha!
+				<g-emoji alias="tada" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png"
+					ios-version="6.0">🎉</g-emoji> Changelog will be added from
+				<code>up v.0.2.0</code>
+				<a href="/codefeathers/up-serve/blob/master/Roadmap.md">(Alpha/MVP)</a>
+				<br>
+				<g-emoji alias="warning" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png" ios-version="6.0">⚠️</g-emoji>
+				<g-emoji alias="x" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/274c.png"
+					ios-version="6.0">❌</g-emoji>
+				<code>up</code> is still not ready for use yet! Do not attempt to use this in development or production until alpha!</p>
+		</blockquote>
+		<p>
+			<strong>
+				<code>up</code>
+			</strong> is a command line application that creates nginx server blocks quickly with a single command.</p>
+		<h2>
+			<a href="#installation" aria-hidden="true" class="anchor" id="installation">
+				<svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+					<path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+				</svg>
+			</a>Installation</h2>
+		<p>As of now,
+			<code>up</code> only supports Debian and Ubuntu based distros. Support for more distros will come soon. Add an issue to bump
+			this process.</p>
+		<p>You will need to have
+			<a href="https://nodejs.org">
+				<em>node JS</em>
+			</a> and
+			<a href="https://nginx.org">
+				<em>nginx</em>
+			</a> installed.</p>
+		<p>Install
+			<code>up</code> from npm:</p>
+		<p>
+			<code>npm i -g up-serve</code>
+		</p>
+		<blockquote>
+			<p>
+				<code>up</code> is now available as a command.</p>
+		</blockquote>
+		<h2>
+			<a href="#commands" aria-hidden="true" class="anchor" id="commands">
+				<svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+					<path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+				</svg>
+			</a>Commands</h2>
+		<p>
+			<code>up static &lt;domain&gt;</code> - Create new static server at current folder.</p>
+		<p>
+			<code>up proxy &lt;domain&gt; &lt;port&gt;</code> - Create new proxy server listening at said port.</p>
+		<p>
+			<code>up list</code> - List currently available servers. (Doesn't work yet)</p>
+		<p>
+			<code>up kill &lt;domain&gt;</code> - Kill the server for this domain.</p>
+		<h2>
+			<a href="#examples" aria-hidden="true" class="anchor" id="examples">
+				<svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+					<path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+				</svg>
+			</a>Examples</h2>
+		<p>
+			<code>up static example.com</code> will serve a static website from current folder.</p>
+		<p>
+			<code>up proxy example.com 8081</code> will create a reverse proxy listening at port 8081.</p>
+		<p>
+			<code>up kill example.com</code>
+		</p>
+		<h2>
+			<a href="#contributors-collaborators-and-guides" aria-hidden="true" class="anchor" id="contributors-collaborators-and-guides">
+				<svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+					<path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+				</svg>
+			</a>Contributors, Collaborators, and Guides</h2>
+		<p>Plenty of people gave their time guiding me and shaping this tool.</p>
+		<p>I'd like to thank and give credit to
+			<a href="https://thedevs.network">The Devs Community</a>, who are the primary reason this exists.</p>
+		<p>I'd also personally thank the following amazing people for their valuable support and feedback:
+			<strong>Pouria Ezzati, Thomas Rory Gummerson, Omar Khalil, Martin, GingerPlusPlus, Faizan Akram.</strong>
+		</p>
+		<p>And the following people for their moral support and listening to my constant bickering:
+			<strong>David (The Humanoid), Иброхеем, Simon 'SitiSchu' Schürrle.</strong>
+		</p>
+	</article>
+
+
+
+	<div id="ajax-error-message" class="ajax-error-message flash flash-error">
+		<svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+			<path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path>
+		</svg>
+		<button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+			<svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+				<path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
+			</svg>
+		</button>
+		You can't perform that action at this time.
+	</div>
+
+
+
+	<script crossorigin="anonymous" integrity="sha256-LH69UKgv8w0tiqRtzIs/o4mITJe6WaehuBnn+NHQxjE=" src="codefeathers_up-serve%20%20A%20cli%20tool%20to%20quickly%20create%20and%20manage%20nginx%20server%20blocks_files/frameworks-2c7ebd50a82ff30d2d8aa46dcc8b3fa389884c97ba59a7a1b8.js"></script>
+
+	<script async="async" crossorigin="anonymous" integrity="sha256-EcL7/9T7SOxkaZ8sJI5Q9R4c6hqYEF9sDmhbH1TxUos=" src="codefeathers_up-serve%20%20A%20cli%20tool%20to%20quickly%20create%20and%20manage%20nginx%20server%20blocks_files/github-11c2fbffd4fb48ec64699f2c248e50f51e1cea1a98105f6c0e685b.js"></script>
+
+
+
+
+	<div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+		<svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+			<path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"></path>
+		</svg>
+		<span class="signed-in-tab-flash">You signed in with another tab or window.
+			<a href="">Reload</a> to refresh your session.</span>
+		<span class="signed-out-tab-flash">You signed out in another tab or window.
+			<a href="">Reload</a> to refresh your session.</span>
+	</div>
+	<div class="facebox" id="facebox" style="display:none;">
+		<div class="facebox-popup">
+			<div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+			</div>
+			<button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+				<svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+					<path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<!-- Place this tag in your head or just before your close body tag. -->
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
